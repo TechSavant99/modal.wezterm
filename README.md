@@ -7,29 +7,29 @@ This plugin adds great opt-in default modes along with optional visual indicator
 
 #### Default Copy/Visual/Search mode
 Improvements to [Wezterms CopyMode](https://wezfurlong.org/wezterm/copymode.html) with vim keybindings
-![Demo of Copy/Search/Visual mode](https://github.com/MLFlexer/modal.wezterm/assets/75012728/08c2af5c-c75a-4764-bd63-729a91080f79)
+![Demo of Copy/Search/Visual mode](https://github.com/TechSavant99/modal.wezterm/assets/75012728/08c2af5c-c75a-4764-bd63-729a91080f79)
 
 
 
 #### Default UI mode
 
-![Demo of UI mode](https://github.com/MLFlexer/modal.wezterm/assets/75012728/84e5860a-5659-43d9-af51-bb2942b005a6)
+![Demo of UI mode](https://github.com/TechSavant99/modal.wezterm/assets/75012728/84e5860a-5659-43d9-af51-bb2942b005a6)
 
 ## Default modes
 I have included some default modes which are opt-in as to improve performance for all users.
 
 ### Copy mode, with Search and Visual submodes
-![Copy mode](https://github.com/MLFlexer/modal.wezterm/assets/75012728/d11d088c-f99a-464f-8de6-2a447da1e57a)
-![Visual mode](https://github.com/MLFlexer/modal.wezterm/assets/75012728/b8c63098-f8e3-481e-8881-b617d6b87a80)
-![Search mode](https://github.com/MLFlexer/modal.wezterm/assets/75012728/ee8a9881-2c7f-499f-ba66-f55f81360869)
+![Copy mode](https://github.com/TechSavant99/modal.wezterm/assets/75012728/d11d088c-f99a-464f-8de6-2a447da1e57a)
+![Visual mode](https://github.com/TechSavant99/modal.wezterm/assets/75012728/b8c63098-f8e3-481e-8881-b617d6b87a80)
+![Search mode](https://github.com/TechSavant99/modal.wezterm/assets/75012728/ee8a9881-2c7f-499f-ba66-f55f81360869)
 
 ### UI mode
 UI mode has vim-like bindings to navigate and modify panes, tabs and other UI elements.
-![UI mode](https://github.com/MLFlexer/modal.wezterm/assets/75012728/07545d3d-2f94-44df-8f02-cb9ff0ee6d0a)
+![UI mode](https://github.com/TechSavant99/modal.wezterm/assets/75012728/07545d3d-2f94-44df-8f02-cb9ff0ee6d0a)
 
 ### Scroll mode
 In scroll mode you can scroll with familiar vim bindings.
-![Scroll mode](https://github.com/MLFlexer/modal.wezterm/assets/75012728/52e792dd-580d-4bea-a31f-e5f589212217)
+![Scroll mode](https://github.com/TechSavant99/modal.wezterm/assets/75012728/52e792dd-580d-4bea-a31f-e5f589212217)
 
 ## Setup
 It is recommended to do the setup with some [Customization](#Customization). However if you just want to try it out you can follow the [Preset](#Preset)
@@ -37,7 +37,7 @@ It is recommended to do the setup with some [Customization](#Customization). How
 Add the following to the bottom of your config:
 ```lua
 local wezterm = require("wezterm")
-local modal = wezterm.plugin.require("https://github.com/MLFlexer/modal.wezterm")
+local modal = wezterm.plugin.require("https://github.com/TechSavant99/modal.wezterm")
 modal.apply_to_config(config)
 modal.set_default_keys(config)
 ```
@@ -55,7 +55,7 @@ Checkout the [keybinding descriptions](/defaults/keybinds.md)
 1. Require the plugin:
 ```lua
 local wezterm = require("wezterm")
-local modal = wezterm.plugin.require("https://github.com/MLFlexer/modal.wezterm")
+local modal = wezterm.plugin.require("https://github.com/TechSavant99/modal.wezterm")
 ```
 2. Add your own mode
 
@@ -105,7 +105,7 @@ end)
 ### Enabling default modes
 If you want to enable a default mode, then you can add the following:
 ```lua
-modal.enable_defaults("https://github.com/MLFlexer/modal.wezterm")
+modal.enable_defaults("https://github.com/TechSavant99/modal.wezterm")
 -- "ui_mode" can be replaced by any filename from the /defaults directory
 local key_table = require("ui_mode").key_table
 

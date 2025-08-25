@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local modal = wezterm.plugin.require("https://github.com/MLFlexer/modal.wezterm")
+local modal = wezterm.plugin.require("https://github.com/TechSavant99/modal.wezterm")
 
 ---Create status text with hints
 ---@param hint_icons {left_seperator: string, key_hint_seperator: string, mod_seperator: string}

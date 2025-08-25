@@ -1,6 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local modal = wezterm.plugin.require("https://github.com/MLFlexer/modal.wezterm")
+local modal = wezterm.plugin.require("https://github.com/TechSavant99/modal.wezterm")
 
 -- From smartsplits.nvim
 local function is_vim(pane)
