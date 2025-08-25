@@ -12,6 +12,7 @@ local wezterm = require("wezterm")
 local modes = {
 	copy_mode = { name = "copy_mode", key_table_name = "copy_mode", status_text = "Copy" },
 	search_mode = { name = "search_mode", key_table_name = "search_mode", status_text = "Search" },
+	visual_mode = { name = "visual_mode", key_table_name = "visual_mode", status_text = "Visual" },
 }
 
 -- map from key_table_name to key_table
@@ -124,6 +125,15 @@ local function activate_mode(name, activate_key_table_params)
 				wezterm.emit("modal.enter", name, window, pane)
 			end),
 		})
+	elseif name == "visual_mode" then
+		local parameters = activate_key_table_params or { one_shot = false }
+
+		return wezterm.action.Multiple({
+			wezterm.action.ActivateKeyTable(parameters),
+			wezterm.action_callback(function(window, pane)
+				wezterm.emit("modal.enter", name, window, pane)
+			end),
+		})
 	else
 		local parameters = activate_key_table_params or { one_shot = false }
 		parameters.name = name
@@ -152,6 +162,13 @@ local function exit_mode(name)
 		return wezterm.action.Multiple({
 			wezterm.action.CopyMode("ClearPattern"),
 			wezterm.action.CopyMode("Close"),
+			wezterm.action_callback(function(window, pane)
+				wezterm.emit("modal.exit", name, window, pane)
+			end),
+		})
+	elseif name == "visual_mode" then
+		return wezterm.action.Multiple({
+			"PopKeyTable",
 			wezterm.action_callback(function(window, pane)
 				wezterm.emit("modal.exit", name, window, pane)
 			end),
@@ -221,7 +238,7 @@ local function apply_to_config(config)
 
 	status_text =
 		require("visual_mode").get_hint_status_text(icons, colors, { bg = config.colors.ansi[3], fg = fg_status_color })
-	add_mode("visual_mode", require("visual_mode").key_table, status_text)
+	add_mode("visual_mode", {}, status_text)
 
 	config.key_tables = key_tables
 end
